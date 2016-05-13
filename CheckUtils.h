@@ -9,6 +9,10 @@
 #include <vector>
 #include <set>
 #include "IOUtils.h"
+#include <functional>
+#include <utility>
+#include <chrono>
+#include <cmath>
 using namespace std;
 
 extern int line;
@@ -36,7 +40,7 @@ bool equal(const T& expected, const T& actual,
 
 template<class T, class Predicate = std::function<bool(const T&, const T&)>>
 bool orderedSame(const vector<T> &v1, const vector<T> &v2,
-                 Predicate predicate = [](const T& t1, const T& t2) {
+                 Predicate predicate = [](const T& t1, const T& t2) -> bool{
                      return t1 == t2;
                  }) {
     unsigned long size = v1.size();
