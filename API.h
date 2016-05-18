@@ -15,49 +15,57 @@ public:
     void createUser(int id, double homeX, double homeY) {}
     void createStore(int id, double storeX, double storeY) {}
 
+    // discount = -1 daca userul nu a cumparat nimic si, astfel nu s-a acordat discount
     void visit(int timestamp, int clientId, int storeId, int discount) {}
     void invite(int userWhichInvites, int invitedUser) {}
 
+    // numar de vizite in intervalul (startTime, endTime)
     int visitsInTimeframe(int startTime, int endTime) {
         return 0;
     }
 
+    // discount total in intervalul (startTime, endTime)
     int totalDiscountInTimeframe(int startTime, int endTime) {
         return 0;
     }
 
-    // Returneaza un Array cu id-urile user-ilor
+    // Returneaza un Array de k elemente cu id-urile user-ilor
     Array<int> usersWithBestBuyToDiscountRate(int K) {
         return Array<int>(0, nullptr);
     }
 
+    // numar de vizite in intervalul (startTime, endTime) pentru magazinul storeId
     int visitsInTimeframeOfStore(int startTime, int endTime, int storeId) {
         return 0;
     }
 
+    // cele mai mari discount-uri acordate in magazinul storeId
     Array<int> biggestKDiscounts(int K, int storeId) {
         return Array<int>(0, nullptr);
     }
 
+    // cele mai mari distante de la care vin clientii la magazinul storeId
     Array<double> biggestKClientDistances(int K, int storeId) {
         return Array<double>(0, nullptr);
     }
 
-    // Returneaza un array cu intervalele de timp. Fiecare pair contine startTime, endTime
-    Array<pair<int, int>> mostCrowdedKTimeFrames(int K, int storeId) {
-        return Array<pair<int, int>>(0, nullptr);
-    };
+    // Returneaza un array cu index-ul zilelor cele mai aglomerate
+    Array<int> mostCrowdedKDays(int K, int storeId) {
+        return Array<int>(0, nullptr);
+    }
 
     // Returneaza un array cu dimensiunile grupurilor de utilizatori
     Array<int> distinctGroupsOfUsers() {
         return Array<int>(0, nullptr);
     }
 
+    // Id-ul userului care a invitat cei mai multi utilizatori
+    // Daca sunt doi cu aceeasi valoare, se va intoarce id-ul minim
     int userWithMostInvites() {
         return 0;
     }
 
-    // Lungimea celui mai lung de invitatii
+    // Lungimea celui mai lung lant de invitatii
     int longestInvitesChainSize() {
         return 0;
     }
@@ -72,6 +80,10 @@ public:
     // Id-ul unui grup se considera minimul id-urilor utilizatorilor din acel grup
     Array<pair<int, double>> averageVisitsPerUser() {
         return Array<pair<int, double>>(0, nullptr);
-    };
-    // Asta cu zona nu o putem testa automat
+    }
+
+    // Returneaza latitudine si longitudine pentru locatia recomandata pentru un nou magazin
+    pair<double, double> newStoreCoordinates() {
+        return pair<double, double>(0,0);
+    }
 };

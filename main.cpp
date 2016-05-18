@@ -2,6 +2,7 @@
 #include <map>
 #include <unordered_map>
 #include <vector>
+#include <algorithm>
 #include "CheckUtils.h"
 #include "Constants.h"
 
@@ -143,11 +144,30 @@ bool averageVisitsPerUserForEachGroup(Service& service) {
     cin >> reference;
 
     vector<pair<int, double>> candidate = toVector(service.averageVisitsPerUser());
+    
+    // have to sort otherwise any checker is epsilon-error-prone
+    auto comp = [](const pair<int, double> &p, const pair<int, double> &q) {
+        return p.first < q.first;
+    };
+    
+    sort(reference.begin(), reference.end(), comp);
+    sort(candidate.begin(), candidate.end(), comp);
+    
     return orderedSame(reference, candidate, [](const pair<int, double> &p1, const pair<int, double> &p2) {
         return p1.first == p2.first &&
                fabs(p1.second - p2.second) < 0.01;
     });
 };
+
+bool mostCrowdedKDays(Service& service) {
+    int k, storeId;
+    cin >> k >> storeId;
+    
+    vector<int> reference(k);
+    cin >> reference;
+    
+    return orderedSame(reference, toVector(service.mostCrowdedKDays(k, storeId)));
+}
 
 std::unordered_map<int, checker_func> check {
         {ADD_USER, addUser},
@@ -160,6 +180,7 @@ std::unordered_map<int, checker_func> check {
         {VISITS_IN_TIMEFRAME_OF_STORE, visitsInTimeFrameOfStore},
         {BIGGEST_K_DISCOUNTS, biggestKDiscounts},
         {BIGGEST_K_CLIENT_DISTANCES, biggestKClientDistances},
+        {MOST_K_CROWDED_DAYS, mostCrowdedKDays},
         {DISTINCT_GROUPS_OF_USERS, distinctGroupOfUsers},
         {USER_WITH_MOST_INVITES, userWithMostInvites},
         {LONGEST_INVITE_CHAIN_SIZE, longestInviteChainSize},

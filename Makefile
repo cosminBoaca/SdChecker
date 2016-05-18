@@ -7,4 +7,5 @@ build:
 debug:
 	g++ main.cpp $(CPP_DEBUG_FLAGS)
 
-
+clean:
+	rm a.out
