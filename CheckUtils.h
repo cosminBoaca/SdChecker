@@ -41,6 +41,9 @@ bool equal(const T& expected, const T& actual,
 template<class T, class Predicate = std::function<bool(const T&, const T&)>>
 bool orderedSame(const vector<T> &v1, const vector<T> &v2,
                  Predicate predicate) {
+    if (v1.size() != v2.size())
+        return false;
+
     unsigned long size = v1.size();
 
 
