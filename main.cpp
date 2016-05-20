@@ -141,7 +141,7 @@ bool averageVisitsPerUserForEachGroup(Service& service) {
     int size;
     cin >> size;
 
-    vector<pair<int, double>> reference(size / 2);
+    vector<pair<int, double>> reference(size);
     cin >> reference;
 
     vector<pair<int, double>> candidate = toVector(service.averageVisitsPerUser());
