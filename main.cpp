@@ -62,10 +62,10 @@ bool totalDiscountInTimeframe(Service& service) {
 }
 
 bool usersWithBestBuyDiscountRate(Service& service) {
-    int K;
-    cin >> K;
+    int K, size;
+    cin >> K >> size;
 
-    vector<int> reference(K);
+    vector<int> reference(size);
     cin >> reference;
 
     vector<int> candidate = toVector(service.usersWithBestBuyToDiscountRate(K));
@@ -81,10 +81,10 @@ bool visitsInTimeFrameOfStore(Service& service) {
 }
 
 bool biggestKDiscounts(Service& service) {
-    int k, storeId;
-    cin >> k >> storeId;
+    int k, storeId, size;
+    cin >> k >> storeId >> size;
 
-    vector<int> reference(k);
+    vector<int> reference(size);
     cin >> reference;
 
     vector<int> candidate = toVector(service.biggestKDiscounts(k, storeId));
@@ -92,10 +92,10 @@ bool biggestKDiscounts(Service& service) {
 }
 
 bool biggestKClientDistances(Service& service) {
-    int k, storeId;
-    cin >> k >> storeId;
+    int k, storeId, size;
+    cin >> k >> storeId >> size;
 
-    vector<double> reference(k);
+    vector<double> reference(size);
     cin >> reference;
 
     vector<double> candidate = toVector(service.biggestKClientDistances(k, storeId));
@@ -128,10 +128,10 @@ bool longestInviteChainSize(Service& service) {
 }
 
 bool topKGroupsWithMostVisitsOverall(Service& service) {
-    int k;
-    cin >> k;
+    int k, size;
+    cin >> k >> size;
 
-    vector<int> reference(k);
+    vector<int> reference(size);
     cin >> reference;
 
     return unorderedSame(reference, toVector(service.topKGroupsWithMostVisitsOverall(k)));
@@ -141,7 +141,7 @@ bool averageVisitsPerUserForEachGroup(Service& service) {
     int size;
     cin >> size;
 
-    vector<pair<int, double>> reference(size);
+    vector<pair<int, double>> reference(size / 2);
     cin >> reference;
 
     vector<pair<int, double>> candidate = toVector(service.averageVisitsPerUser());
@@ -161,10 +161,10 @@ bool averageVisitsPerUserForEachGroup(Service& service) {
 };
 
 bool mostCrowdedKDays(Service& service) {
-    int k, storeId;
-    cin >> k >> storeId;
+    int k, storeId, size;
+    cin >> k >> storeId >> size;
     
-    vector<int> reference(k);
+    vector<int> reference(size);
     cin >> reference;
     
     return orderedSame(reference, toVector(service.mostCrowdedKDays(k, storeId)));
