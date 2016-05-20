@@ -145,15 +145,15 @@ bool averageVisitsPerUserForEachGroup(Service& service) {
     cin >> reference;
 
     vector<pair<int, double>> candidate = toVector(service.averageVisitsPerUser());
-    
+
     // have to sort otherwise any checker is epsilon-error-prone
     auto comp = [](const pair<int, double> &p, const pair<int, double> &q) {
         return p.first < q.first;
     };
-    
+
     sort(reference.begin(), reference.end(), comp);
     sort(candidate.begin(), candidate.end(), comp);
-    
+
     return orderedSame(reference, candidate, [](const pair<int, double> &p1, const pair<int, double> &p2) {
         return p1.first == p2.first &&
                fabs(p1.second - p2.second) < 0.01;
@@ -163,19 +163,19 @@ bool averageVisitsPerUserForEachGroup(Service& service) {
 bool mostCrowdedKDays(Service& service) {
     int k, storeId, size;
     cin >> k >> storeId >> size;
-    
+
     vector<int> reference(size);
     cin >> reference;
-    
+
     return orderedSame(reference, toVector(service.mostCrowdedKDays(k, storeId)));
 }
 
 bool newStoreCoordinates(Service& service) {
     pair<double, double> coords = service.newStoreCoordinates();
-    ofstream f("newStoreCoords.txt");
+    ofstream f("newStoreCoords.txt", std::ofstream::out | std::ofstream::app);
     f << coords.first << " " << coords.second << endl;
     f.close();
-    
+
     return true;
 }
 
@@ -210,6 +210,8 @@ int main() {
     int passed = 0, failed = 0;
 
     Service service;
+
+    ofstream f("newStoreCoords.txt"); f.close();
 
     while (T--) {
         cin >> opCode;
