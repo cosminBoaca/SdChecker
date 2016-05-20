@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <map>
 #include <unordered_map>
 #include <vector>
@@ -140,7 +141,7 @@ bool averageVisitsPerUserForEachGroup(Service& service) {
     int size;
     cin >> size;
 
-    vector<pair<int, double>> reference(size / 2);
+    vector<pair<int, double>> reference(size);
     cin >> reference;
 
     vector<pair<int, double>> candidate = toVector(service.averageVisitsPerUser());
@@ -169,6 +170,15 @@ bool mostCrowdedKDays(Service& service) {
     return orderedSame(reference, toVector(service.mostCrowdedKDays(k, storeId)));
 }
 
+bool newStoreCoordinates(Service& service) {
+    pair<double, double> coords = service.newStoreCoordinates();
+    ofstream f("newStoreCoords.txt");
+    f << coords.first << " " << coords.second << endl;
+    f.close();
+    
+    return true;
+}
+
 std::unordered_map<int, checker_func> check {
         {ADD_USER, addUser},
         {ADD_STORE, addStore},
@@ -185,7 +195,8 @@ std::unordered_map<int, checker_func> check {
         {USER_WITH_MOST_INVITES, userWithMostInvites},
         {LONGEST_INVITE_CHAIN_SIZE, longestInviteChainSize},
         {TOP_K_GROUPS_WITH_MOST_OVERALL_VISTS, topKGroupsWithMostVisitsOverall},
-        {AVERAGE_VISITS_PER_USER, averageVisitsPerUserForEachGroup}
+        {AVERAGE_VISITS_PER_USER, averageVisitsPerUserForEachGroup},
+        {NEW_STORE_COORDINATES, newStoreCoordinates}
 };
 
 int main() {

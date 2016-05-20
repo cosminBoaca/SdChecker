@@ -25,7 +25,8 @@ enum OP_CODE {
     USER_WITH_MOST_INVITES = 13,
     LONGEST_INVITE_CHAIN_SIZE = 14,
     TOP_K_GROUPS_WITH_MOST_OVERALL_VISTS = 15,
-    AVERAGE_VISITS_PER_USER = 16
+    AVERAGE_VISITS_PER_USER = 16,
+    NEW_STORE_COORDINATES = 17
 };
 
 std::unordered_map<int, string> name {
@@ -43,7 +44,8 @@ std::unordered_map<int, string> name {
         {USER_WITH_MOST_INVITES, "userWithMostInvites"},
         {LONGEST_INVITE_CHAIN_SIZE, "longestInviteChainSize"},
         {TOP_K_GROUPS_WITH_MOST_OVERALL_VISTS, "topKGroupsWithMostVisitsOverall"},
-        {AVERAGE_VISITS_PER_USER, "averageVisitsPerUserForEachGroup"}
+        {AVERAGE_VISITS_PER_USER, "averageVisitsPerUserForEachGroup"},
+        {NEW_STORE_COORDINATES, "newStoreCoordinates"}
 };
 
 #endif //SDCHECKER_CONSTANTS_H
