@@ -30,6 +30,10 @@ public:
     }
 
     // Returneaza un Array de k elemente cu id-urile user-ilor
+    // Buy to discount rate se calculeaza in felul urmator
+    // buy = numarul de vizite in care user-ul a cumparat ceva (discount > 0)
+    // total = discount-ul total pe care utilizatorul la primit (excluzand vizitele cu discount = -1)
+    // buyToDiscountRate = buy / total
     Array<int> usersWithBestBuyToDiscountRate(int K) {
         return Array<int>(0, nullptr);
     }
@@ -50,6 +54,9 @@ public:
     }
 
     // Returneaza un array cu index-ul zilelor cele mai aglomerate
+    // Index-ul unei zile este timestamp / (24 * 3600)
+    // In cazul in care 2 zile au acelasi numar de vizite 
+    // in output va trebuie sa apara prima cea care are indicele mai mic
     Array<int> mostCrowdedKDays(int K, int storeId) {
         return Array<int>(0, nullptr);
     }
@@ -66,6 +73,9 @@ public:
     }
 
     // Lungimea celui mai lung lant de invitatii
+    // Lungimea lantului se masoara ca numar de invitatii
+    // A invita B => Lungime 1
+    // A invita B, B invita C => Lungime 2
     int longestInvitesChainSize() {
         return 0;
     }
