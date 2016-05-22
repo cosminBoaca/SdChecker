@@ -99,7 +99,7 @@ bool biggestKClientDistances(Service& service) {
     cin >> reference;
 
     vector<double> candidate = toVector(service.biggestKClientDistances(k, storeId));
-    return orderedSame(reference, candidate, [](double a, double b) { return fabs(a - b) < 0.01; });
+    return orderedSame(reference, candidate, [](double a, double b) { return fabs(a - b) < 0.1; });
 }
 
 bool distinctGroupOfUsers(Service& service) {

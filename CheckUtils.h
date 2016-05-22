@@ -24,9 +24,9 @@ vector<T> toVector(const Array<T>& array) {
 
 template<class T>
 bool equal(const T& expected, const T& actual,
-           const string& expectedLabel = "expected",
-           const string& actualLabel = "actual"
-) {
+        const string& expectedLabel = "expected",
+        const string& actualLabel = "actual"
+        ) {
     if (expected != actual) {
         cerr << "-------" << endl;
         cerr << "Query " << line << " failed:" << endl;
@@ -40,19 +40,35 @@ bool equal(const T& expected, const T& actual,
 
 template<class T, class Predicate = std::function<bool(const T&, const T&)>>
 bool orderedSame(const vector<T> &v1, const vector<T> &v2,
-                 Predicate predicate) {
-    if (v1.size() != v2.size())
+        Predicate predicate) {
+
+    if (v1.size() != v2.size()) {
+        cerr << "-------" << endl;
+        cerr << "Query " << line << " failed:" << endl;
+        cerr << "expected size = " << v1.size() << endl;
+        cerr << "actual size = " << v2.size() << endl;
+        cerr << endl;
         return false;
+    }
 
     unsigned long size = v1.size();
 
-
+    bool result = true;
     for (int i = 0; i < size; ++i) {
         if (!predicate(v1[i], v2[i])) {
-            return false;
+            result = false;
         }
     }
-    return true;
+
+    if (!result) {
+        cerr << "-------" << endl;
+        cerr << "Query " << line << " failed:" << endl;
+        for (int i = 0; i < size; ++i) {
+            cerr << "expected = " << v1[i] << endl;
+            cerr << "actual  " << v2[i] << endl;
+        }
+    }
+    return result;
 };
 
 template<class T>

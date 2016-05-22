@@ -9,6 +9,7 @@
 #include <set>
 #include <vector>
 #include <utility>
+#include <unordered_set>
 using namespace std;
 
 template<class T>
@@ -44,5 +45,27 @@ istream& operator >> (istream& in, vector<T>& v) {
     }
     return in;
 }
+
+template<class T>
+ostream& operator << (ostream& out, vector<T>& v) {
+    for (auto& elem : v) {
+        out << elem;
+    }
+    return out;
+}
+
+template<class T>
+ostream& operator << (ostream& out, unordered_set<T>& s) {
+    for (auto& elem : s) {
+        out << elem << " ";
+    }
+    return out;
+}
+
+template<class K, class V>
+ostream& operator << (ostream& out, const pair<K, V>& p) {
+    out << '(' << p.first << ' ' << p.second << ')';
+    return out;
+};
 
 #endif //SDCHECKER_CHECKERUTILS_H_H

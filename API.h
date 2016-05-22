@@ -62,14 +62,18 @@ public:
     }
 
     // Returneaza un array cu dimensiunile grupurilor de utilizatori
+    // Un grup de utilizatori se poate forma DOAR pe baza invitatiilor
+    // Cu alte cuvinte, orice grup va avea dimensiunea minim 2
     Array<int> distinctGroupsOfUsers() {
         return Array<int>(0, nullptr);
     }
 
     // Id-ul userului care a invitat cei mai multi utilizatori
     // Daca sunt doi cu aceeasi valoare, se va intoarce id-ul minim
+    // Daca NU exista niciun utilizator adaugat si intalniti un astfel de query
+    // returnati -1
     int userWithMostInvites() {
-        return 0;
+        return -1;
     }
 
     // Lungimea celui mai lung lant de invitatii
@@ -82,12 +86,16 @@ public:
 
     // Id-urile grupurilor cu cele mai multe invitatii overall
     // Id-ul unui grup se considera minimul id-urilor utilizatorilor din acel grup
+    // Un grup de utilizatori se poate forma DOAR pe baza invitatiilor
+    // Cu alte cuvinte, orice grup va avea dimensiunea minim 2
     Array<int> topKGroupsWithMostVisitsOverall(int K) {
         return Array<int>(0, nullptr);
     }
 
     // O lista de perechi de forma (idGrup, numarMediuDeVizite)
     // Id-ul unui grup se considera minimul id-urilor utilizatorilor din acel grup
+    // Un grup de utilizatori se poate forma DOAR pe baza invitatiilor
+    // Cu alte cuvinte, orice grup va avea dimensiunea minim 2
     Array<pair<int, double>> averageVisitsPerUser() {
         return Array<pair<int, double>>(0, nullptr);
     }
