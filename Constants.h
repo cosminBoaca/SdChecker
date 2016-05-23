@@ -39,6 +39,7 @@ std::unordered_map<int, string> name {
         {USERS_WITH_BEST_BUY_DISCOUNT_RATE, "usersWithBestBuyDiscountRate"},
         {VISITS_IN_TIMEFRAME_OF_STORE, "visitsInTimeFrameOfStore"},
         {BIGGEST_K_DISCOUNTS, "biggestKDiscounts"},
+        {BIGGEST_K_CLIENT_DISTANCES, "biggestKClientDistances"},
         {MOST_K_CROWDED_DAYS, "mostCrowdedKDays"},
         {DISTINCT_GROUPS_OF_USERS, "distinctGroupOfUsers"},
         {USER_WITH_MOST_INVITES, "userWithMostInvites"},
